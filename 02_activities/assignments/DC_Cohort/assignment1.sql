@@ -69,7 +69,10 @@ FROM product;
 --JOIN
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
-
+SELECT *
+	FROM vendor
+	INNER JOIN vendor_booth_assignments ON vendor.vendor_id = vendor_booth_assignments.vendor_id
+	ORDER BY vendor_name, market_date;
 
 
 
@@ -78,15 +81,27 @@ vendor_id field they both have in common, and sorts the result by vendor_name, t
 -- AGGREGATE
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
-
-
+SELECT vendor_id, COUNT(vendor_id) as count_
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
 
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
 sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list 
 of customers for them to give stickers to, sorted by last name, then first name. 
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
-
+SELECT 
+	customer.customer_first_name,
+	customer.customer_last_name,
+    customer_purchases.customer_id,
+    SUM(customer_purchases.quantity * customer_purchases.cost_to_customer_per_qty) 
+		AS total_spent_money
+FROM customer_purchases
+INNER JOIN customer 
+	ON customer.customer_id = customer_purchases.customer_id
+GROUP BY customer_purchases.customer_id
+HAVING SUM(quantity * cost_to_customer_per_qty) > 2000
+ORDER BY customer.customer_last_name, customer.customer_first_name;
 
 
 --Temp Table
