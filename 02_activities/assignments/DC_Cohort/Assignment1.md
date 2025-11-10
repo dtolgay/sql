@@ -206,4 +206,7 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 ```
 Your thoughts...
+The takeaway message from the article is "Good database design does not need to predict what will happen 20 years in the future, but needs to acknowledge there will be change." I completely agree with that statement. The values of society will eventually change with time. It always did. What is seen as debauchery could be seen as virtuous in the future. It is therefore important that a database is free from any biases. 
+
+We can think about an extreme case to imagine the potential problems that could occur on the databases related with basic citizenship: "Is the person alive or dead?" Today, the data type is obviously boolean; however, in the future, it does not necessarily need to be boolean. Let's imagine that the brain can be transplanted to a robot body in the future. The body of the person is dead, but the brain is living in the robotic body. Then the answer to that question posed above ceases to be clear. The future databases might need to update their systems such that the data type should be INT, including possible situations such as 0: dead, 1: alive, 2: brain alive, and other variations.
 ```
