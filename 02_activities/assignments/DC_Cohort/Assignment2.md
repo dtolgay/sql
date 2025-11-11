@@ -48,6 +48,8 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
+![Entity Relationship Diagram](ERD_hw2.pdf)
+
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
@@ -55,6 +57,12 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
+CUSTOMER_ADDRESS should share a key with customer table. One should be able to reach the information presented in the CUSTOMER_ADDRESS table using the primary key of the customer table. The following columns can be used to store the data: 
+customer_id, Street, Apartment, City, Province, Postal Code, Country  
+
+The address of the customers can change over time. Therefore values of the table should be able to change. There are two ways of implementing this table. The first option is to have one-to-one relation between customer table and CUSTOMER_ADDRESS table such that every user will have one address. When address of the user changes, the value in the table will change accordingly. These types of tables are known as type 1. Rather than retaining the previously changed data, they overwrite and the previous data is no longer accessible. 
+However, I don't think that this is the most optimal approach. A user can have more than one address. For a bookstore it could be better to store all of the addresses of th customer to make purchasing more convenient for them. When user adds a new address one their address could be the main and the others should still be accesible unless user deletes them. Such a table design is known as type 2.
+
 ```
 
 ***
