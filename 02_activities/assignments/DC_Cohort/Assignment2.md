@@ -193,5 +193,8 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+This article mentions about the human effort that made AI model possible by labelling large training datasets. The inidividual elements of the datasets are labelled by people that are in need of quick monatery needs that leads to questions left unanswered in the article. 
+The first ethical consideration is the question of consent of people whom their data is trained. Large training datasets for computer vision are generally composed of the pictures of the humans. It is questionable that if these humans have consent for their identification data to be used while training the models. 
+The second ethical problem is the possible bias of the people who are labelling the data. Human biasses when labelling the data will fundementally effect the decision making mechanism of the trained model. Therefore while assessment of the model is done, the developers should be mindful about these biasses. 
+Furthermore, such endevour is not possible without the tremendous effort of graduate students, staff and technicians involved in the process. However, generally only the lead person or/and big companies are rewarded, while the rest is merely acknowledged (maybe).  
 ```
