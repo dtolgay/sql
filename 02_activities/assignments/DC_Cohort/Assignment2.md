@@ -45,8 +45,12 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+![Entity Relationship Diagram wout employee_shifts](hw2_q1_erd.pdf)
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+![Entity Relationship Diagram](ERD_hw2.pdf)
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -55,6 +59,12 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
+CUSTOMER_ADDRESS should share a key with customer table. One should be able to reach the information presented in the CUSTOMER_ADDRESS table using the primary key of the customer table. The following columns can be used to store the data: 
+customer_id, Street, Apartment, City, Province, Postal Code, Country  
+
+The address of the customers can change over time. Therefore values of the table should be able to change. There are two ways of implementing this table. The first option is to have one-to-one relation between customer table and CUSTOMER_ADDRESS table such that every user will have one address. When address of the user changes, the value in the table will change accordingly. These types of tables are known as type 1. Rather than retaining the previously changed data, they overwrite and the previous data is no longer accessible. 
+However, I don't think that this is the most optimal approach. A user can have more than one address. For a bookstore it could be better to store all of the addresses of th customer to make purchasing more convenient for them. When user adds a new address one their address could be the main and the others should still be accesible unless user deletes them. Such a table design is known as type 2.
+
 ```
 
 ***
@@ -183,5 +193,8 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+This article mentions about the human effort that made AI model possible by labelling large training datasets. The inidividual elements of the datasets are labelled by people that are in need of quick monatery needs that leads to questions left unanswered in the article. 
+The first ethical consideration is the question of consent of people whom their data is trained. Large training datasets for computer vision are generally composed of the pictures of the humans. It is questionable that if these humans have consent for their identification data to be used while training the models. 
+The second ethical problem is the possible bias of the people who are labelling the data. Human biasses when labelling the data will fundementally effect the decision making mechanism of the trained model. Therefore while assessment of the model is done, the developers should be mindful about these biasses. 
+Furthermore, such endevour is not possible without the tremendous effort of graduate students, staff and technicians involved in the process. However, generally only the lead person or/and big companies are rewarded, while the rest is merely acknowledged (maybe).  
 ```
